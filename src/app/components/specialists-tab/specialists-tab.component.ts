@@ -22,18 +22,7 @@ export class SpecialistsTabComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {}
 
-  ngOnChanges() {
-    // this.appData.load().subscribe(
-    //   (serverData) => {
-    //     if (serverData !== null) {
-    //       Object.keys(serverData).map((key: any) =>
-    //         this.items.push({ ...serverData[key], id: key })
-    //       );
-    //     }
-    //   },
-    //   (err) => console.log(err)
-    // );
-  }
+  ngOnChanges() {}
 
   deleteItem(id: string) {
     this.appData.remove(id).subscribe(

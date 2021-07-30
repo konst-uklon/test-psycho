@@ -39,6 +39,8 @@ export class DataService {
     return this.http.get<SpecialistDataType[]>(`${DataService.url}.json`);
   }
 
+  returnData = () => this.data;
+
   create(specialist: SpecialistDataType): Observable<SpecialistDataType> {
     this.data = [...this.data, specialist];
 
