@@ -1,0 +1,134 @@
+.form {
+  &__container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+  }
+  &__header {
+    text-align: center;
+    padding: 30px 0 0;
+  }
+  &__container {
+    max-width: 60%;
+    padding: 40px 0;
+  }
+  &__content {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .form {
+    &__container {
+      max-width: 80%;
+      padding: 30px 0;
+    }
+    &__header {
+      padding: 30px 0 0;
+    }
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .form {
+    &__content {
+      width: 60%;
+    }
+    &__container {
+      max-width: 90%;
+      padding: 20px 0;
+    }
+  }
+}
+
+@media screen and (max-width: 467px) {
+  .form {
+    &__content {
+      width: 80%;
+    }
+    &__container {
+      max-width: 90%;
+    }
+    &__header {
+      font-size: 18px;
+    }
+  }
+}
+
+// .form {
+//   &__container,
+//   &__header {
+//     margin: 0 auto;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+//   &__header {
+//     padding: 40px 0 0;
+//     text-transform: uppercase;
+//   }
+//   &__container {
+//     max-width: 60%;
+//     padding: 40px 0;
+//   }
+//   &__label {
+//     text-align: left;
+//     text-transform: uppercase;
+//   }
+//   &__input,
+//   &__select {
+//     width: 60%;
+//     padding: 10px;
+//     margin: 5px;
+//     border-radius: 5px;
+//     outline: none;
+//     border: 2px solid rgb(187, 187, 187);
+//     &:focus {
+//       border: 2px solid rgb(12, 160, 240);
+//     }
+//     &--done {
+//       border: 2px solid rgb(149, 223, 112);
+//     }
+//     &--error {
+//       border: 2px solid rgb(243, 196, 196);
+//       &::placeholder {
+//         color: red;
+//         opacity: 0.5;
+//       }
+//     }
+//   }
+//   &__submit,
+//   &__disabled {
+//     padding: 10px;
+//     border-radius: 5px;
+//     outline: none;
+//     border: 0;
+//     color: white;
+//     text-transform: uppercase;
+//     font-size: 13px;
+//     font-weight: bold;
+//     margin-top: 10px;
+//   }
+//   &__submit {
+//     background-color: rgb(0, 179, 125);
+//     cursor: pointer;
+//     &:hover {
+//       transform: scale(1.1);
+//     }
+//   }
+//   &__disabled {
+//     background-color: rgb(238, 92, 92);
+//     opacity: 0.6;
+//     cursor: not-allowed;
+//   }
+//   &__error {
+//     &--block {
+//       padding: 0;
+//       color: red;
+//       text-transform: uppercase;
+//       font-size: 13px;
+//     }
+//   }
+// }

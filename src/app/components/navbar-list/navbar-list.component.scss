@@ -1,0 +1,36 @@
+.nav {
+  &__list {
+    list-style-type: none;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .nav {
+    &__link {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+      &:hover {
+        color: rgb(144, 255, 80);
+        border-bottom: 2px solid rgb(144, 255, 80);
+        padding-bottom: 18px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .nav {
+    &__list {
+      padding: 10px;
+    }
+    &__item {
+      padding: 10px;
+      font-size: 18px;
+      &:hover {
+        color: rgb(144, 255, 80);
+      }
+    }
+  }
+}

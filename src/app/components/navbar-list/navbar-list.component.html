@@ -1,0 +1,14 @@
+<div class="nav__list--container" width="{1}">
+  <ul
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutAlign.gt-xs="space-between"
+    class="nav__list"
+  >
+    <li class="nav__item" *ngFor="let item of headerItems" m="{0}">
+      <a [routerLink]="item.path" class="nav__link" (click)="closeSidenav()">{{
+        item.textContent
+      }}</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,11 @@
+.analityc {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__header {
+    text-transform: uppercase;
+    padding: 20px;
+  }
+}

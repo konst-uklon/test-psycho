@@ -1,0 +1,9 @@
+<div class="block">
+  <div class="header" *ngIf="true">Choose the required specialty</div>
+  <div class="header__empty-data" *ngIf="">
+    At the moment there are no specialists
+  </div>
+  <div class="content">
+    <app-specialists-tab [items]="data"></app-specialists-tab>
+  </div>
+</div>

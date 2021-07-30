@@ -1,0 +1,17 @@
+.analityc {
+  &__list {
+    max-width: 50vw;
+    min-width: 50vw;
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 10px;
+  }
+  &__title,
+  &__result {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}

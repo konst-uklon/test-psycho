@@ -1,0 +1,10 @@
+<div class="content" *ngFor="let item of items">
+  <h1>{{ item.name }}</h1>
+  <p>{{ item.email }}</p>
+  <p>{{ item.speciality }}</p>
+  <div class="button-block">
+    <button>Favourites</button>
+    <button>Disfavourites</button>
+  </div>
+  <button (click)="deleteItem(item.id)">Delete</button>
+</div>

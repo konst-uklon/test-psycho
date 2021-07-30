@@ -1,0 +1,123 @@
+<h2 class="form__header">Add new specialist</h2>
+<!-- class="form__container" -->
+<form
+  novalidate
+  class="form__container"
+  [formGroup]="addSpecialist"
+  (ngSubmit)="submit()"
+>
+  <!-- --------------------Specialist Name Field---------------------- -->
+
+  <mat-form-field class="form__content" appearance="fill">
+    <mat-label for="name" class="form__label">Name</mat-label>
+    <input matInput placeholder="Add specialist name" formControlName="name" />
+    <!-- Errors for Specialist name input -->
+    <div
+      class="form__error--block"
+      *ngIf="
+        addSpecialist.get('name')?.errors &&
+        (addSpecialist.get('name')?.dirty || addSpecialist.get('name')?.touched)
+      "
+    >
+      <mat-error
+        *ngIf="
+          addSpecialist.get('name')?.errors?.required &&
+          (addSpecialist.get('name')?.dirty ||
+            addSpecialist.get('name')?.touched)
+        "
+      >
+        Required
+      </mat-error>
+      <mat-error
+        *ngIf="
+          addSpecialist.get('name')?.errors?.pattern &&
+          (addSpecialist.get('name')?.dirty ||
+            addSpecialist.get('name')?.touched)
+        "
+      >
+        Incorrect name
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <!-- -----------------Specialist Email Field---------------------- -->
+  <mat-form-field class="form__content" appearance="fill">
+    <mat-label for="email" class="form__label">Email</mat-label>
+    <input matInput placeholder="Add specialist name" formControlName="email" />
+    <!-- Errors for Specialist email input -->
+    <div
+      class="form__error--block"
+      *ngIf="
+        addSpecialist.get('email')?.errors &&
+        (addSpecialist.get('email')?.dirty ||
+          addSpecialist.get('email')?.touched)
+      "
+    >
+      <mat-error
+        *ngIf="
+          addSpecialist.get('email')?.errors?.required &&
+          (addSpecialist.get('email')?.dirty ||
+            addSpecialist.get('email')?.touched)
+        "
+      >
+        Required
+      </mat-error>
+      <mat-error
+        class="form__error"
+        *ngIf="
+          addSpecialist.get('email')?.errors?.email &&
+          (addSpecialist.get('email')?.dirty ||
+            addSpecialist.get('email')?.touched)
+        "
+      >
+        Incorrect email
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <!-- ----------------------------Specialist Speciality Field--------------------------- -->
+  <!-- 
+    [ngClass]="
+      addSpecialist.get('email')?.errors &&
+      (addSpecialist.get('email').dirty ||
+        addSpecialist.get('email').touched)
+        ? 'form__input form__input--error'
+        : 'form__input'
+    "
+  /> -->
+  <mat-form-field class="form__content" appearance="fill">
+    <mat-label for="speciality" class="form__label">Speciality</mat-label>
+    <mat-select formControlName="speciality">
+      <!-- <mat-option [value]="null" disabled>Choose specialty</mat-option> -->
+      <mat-option *ngFor="let spec of specialty" [value]="spec">
+        {{ spec }}
+      </mat-option>
+    </mat-select>
+    <!-- Errors for Specialist Speciality select -->
+    <div
+      class="form__error--block"
+      *ngIf="
+        addSpecialist.get('speciality')?.errors &&
+        (addSpecialist.get('speciality')?.dirty ||
+          addSpecialist.get('speciality')?.touched)
+      "
+    >
+      <p
+        class="form__error"
+        *ngIf="
+          addSpecialist.get('speciality')?.errors?.required &&
+          (addSpecialist.get('speciality')?.dirty ||
+            addSpecialist.get('speciality')?.touched)
+        "
+      >
+        Choose one of the options
+      </p>
+    </div>
+  </mat-form-field>
+
+  <!-- type="submit"
+  name="submit"
+  [disabled]="addSpecialist.invalid"
+  [ngClass]="addSpecialist.invalid ? 'form__disabled' : 'form__submit'" -->
+  <button mat-raised-button color="accent">Create new specialist</button>
+</form>
