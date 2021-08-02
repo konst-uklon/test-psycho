@@ -15,8 +15,6 @@ interface AnalitycsItemType {
   providers: [DataService],
 })
 export class AnalitycItemsComponent implements OnInit {
-  data: SpecialistDataType[] = [];
-
   analiticsList: AnalitycsItemType[] = [
     { title: 'Total specialists', result: 0 },
     { title: 'Total psychologist', result: 0 },
@@ -27,29 +25,17 @@ export class AnalitycItemsComponent implements OnInit {
   ];
 
   constructor(readonly appData: DataService) {
-    // this.appData.load().subscribe(
-    //   (serverData) => {
-    //     Object.keys(serverData).map((key: any) =>
-    //       this.data.push(serverData[key])
-    //     );
-    //     this.setArrForRender(this.data);
-    //   },
-    //   (err) => console.log(err)
-    // );
-  }
-
-  ngOnInit = () => {
-    let { data, appData } = this;
     appData.getData().subscribe(
       (dataFromDB: SpecialistDataType[]) => {
-        data = dataFromDB;
+        this.setArrForRender(dataFromDB);
       },
       (error: string | null) => {
         // dataError = error.message;
       }
     );
-    console.log('Analitycs data - ', data);
-  };
+  }
+
+  ngOnInit = () => {};
 
   setArrForRender = (arr: SpecialistDataType[]) => {
     const { analiticsList } = this;

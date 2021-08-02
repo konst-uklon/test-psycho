@@ -19,39 +19,13 @@ export class DataService implements OnInit {
   static url =
     'https://specialists-8c218-default-rtdb.europe-west1.firebasedatabase.app/specialists';
 
-  // data: SpecialistDataType[] = [];
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) {
-    // this.load().subscribe(
-    //   (serverData) => {
-    //     if (serverData !== null) {
-    //       Object.keys(serverData).map((key: any) =>
-    //         this.data.push({ ...serverData[key], id: key })
-    //       );
-    //     }
-    //     console.log(this.data);
-    //   },
-    //   (err) => console.error(err)
-    // );
-  }
+  ngOnInit() {}
 
-  ngOnInit() {
-    // this.getData();
-    // console.log('NgOnInit - ', this.data);
-  }
-
-  load() {
-    //: Observable<SpecialistDataType[]>
-    return this.getData();
-  }
-
-  // returnData = () => this.data.load().subscribe(()=> {}, (err) => console.error(err));
-
-  create(
+  create = (
     specialist: SpecialistDataType // : Observable<SpecialistDataType>
-  ) {
-    // this.data = [...this.data, specialist];
-
+  ) => {
     this.http
       .post<{ name: string }>(`${DataService.url}.json`, specialist)
       .subscribe(
@@ -60,16 +34,9 @@ export class DataService implements OnInit {
         },
         (err) => console.error(err)
       );
-    // .subscribe(
-    //   () => {},
-    //   (err) => console.error(err)
-    // );
-  }
+  };
 
   remove(id: string): Observable<void> {
-    // console.log(this.data);
-    // const newDataWithoutDeleteItem = this.data.filter((item) => item.id !== id);
-    // this.data = newDataWithoutDeleteItem;
     return this.http.delete<void>(`${DataService.url}/${id}.json`);
   }
 
@@ -79,7 +46,7 @@ export class DataService implements OnInit {
   //   return this.http.put<void>(`${DataService.url}/${id}.json`, newItemData);
   // }
 
-  getData() {
+  getData = () => {
     return this.http.get<SpecialistDataType[]>(`${DataService.url}.json`).pipe(
       map((res) => {
         const dataArr: SpecialistDataType[] = [];
@@ -99,5 +66,5 @@ export class DataService implements OnInit {
     //   },
     //   (err) => console.error(err)
     // );
-  }
+  };
 }
