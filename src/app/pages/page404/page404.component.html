@@ -1,1 +1,8 @@
-<p>page404 works!</p>
+<div class="page404">
+  <h2 class="page404-header">404</h2>
+  <h3 class="page404-text">Page not found</h3>
+  <div class="button-block">
+    <a class="page404-button" [routerLink]="''">Go to the home page</a>
+    <a class="page404-button" (click)="goBackHandler()">Go back</a>
+  </div>
+</div>

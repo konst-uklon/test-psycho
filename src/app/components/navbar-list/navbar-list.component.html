@@ -5,7 +5,7 @@
     fxLayoutAlign.gt-xs="space-between"
     class="nav__list"
   >
-    <li class="nav__item" *ngFor="let item of headerItems" m="{0}">
+    <li class="nav__item" *ngFor="let item of headerItems">
       <a [routerLink]="item.path" class="nav__link" (click)="closeSidenav()">{{
         item.textContent
       }}</a>

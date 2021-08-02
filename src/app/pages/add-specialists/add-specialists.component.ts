@@ -12,7 +12,7 @@ import { DataService } from 'src/app/shared/data.service';
   templateUrl: './add-specialists.component.html',
   styleUrls: ['./add-specialists.component.scss'],
 })
-export class AddSpecialistsComponent implements OnInit {
+export class AddSpecialistsComponent {
   addSpecialist: FormGroup;
   specialty: string[] = ['Psychologist', 'Psychotherapist', 'Psychiatrist'];
 
@@ -27,8 +27,6 @@ export class AddSpecialistsComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
   submit() {
     const newSpec = this.addSpecialist.value;
     const fullDataOfNewSpec = {
@@ -37,11 +35,7 @@ export class AddSpecialistsComponent implements OnInit {
       isDisFavourite: false,
     };
 
-    this.appData.create(fullDataOfNewSpec).subscribe(
-      () => {
-        this.addSpecialist.reset();
-      },
-      (err) => console.error(err)
-    );
+    this.appData.create(fullDataOfNewSpec);
+    this.addSpecialist.reset();
   }
 }

@@ -14,7 +14,7 @@ interface AnalitycsItemType {
   styleUrls: ['./analityc-items.component.scss'],
   providers: [DataService],
 })
-export class AnalitycItemsComponent {
+export class AnalitycItemsComponent implements OnInit {
   data: SpecialistDataType[] = [];
 
   analiticsList: AnalitycsItemType[] = [
@@ -27,16 +27,29 @@ export class AnalitycItemsComponent {
   ];
 
   constructor(readonly appData: DataService) {
-    this.appData.load().subscribe(
-      (serverData) => {
-        Object.keys(serverData).map((key: any) =>
-          this.data.push(serverData[key])
-        );
-        this.setArrForRender(this.data);
-      },
-      (err) => console.log(err)
-    );
+    // this.appData.load().subscribe(
+    //   (serverData) => {
+    //     Object.keys(serverData).map((key: any) =>
+    //       this.data.push(serverData[key])
+    //     );
+    //     this.setArrForRender(this.data);
+    //   },
+    //   (err) => console.log(err)
+    // );
   }
+
+  ngOnInit = () => {
+    let { data, appData } = this;
+    appData.getData().subscribe(
+      (dataFromDB: SpecialistDataType[]) => {
+        data = dataFromDB;
+      },
+      (error: string | null) => {
+        // dataError = error.message;
+      }
+    );
+    console.log('Analitycs data - ', data);
+  };
 
   setArrForRender = (arr: SpecialistDataType[]) => {
     const { analiticsList } = this;
