@@ -1,20 +1,8 @@
-<!-- <div class="nav__container">
-  <ul class="nav__list">
-    <li class="nav__item" *ngFor="let item of headerItems">
-      <a [routerLink]="item.path" class="nav__link">{{ item.textContent }}</a>
-    </li>
-  </ul>
-</div> -->
-
 <mat-toolbar color="primary" fxLayout>
   <div fxShow.xs="true" fxShow="false">
     <button mat-icon-button (click)="onToggleSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
-  <app-navbar-list
-    class="nav__list--comp"
-    fxShow.xs="false"
-    fxShow="true"
-  ></app-navbar-list>
+  <app-navbar-list class="nav__list--comp" fxShow.xs="false"></app-navbar-list>
 </mat-toolbar>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ActionButtonComponent } from './components/action-button/action-button.component';
@@ -24,9 +25,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarListComponent } from './components/navbar-list/navbar-list.component';
-import { AllSpecialistsComponent } from './pages/all-specialists/all-specialists.component';
-import { FavouritesComponent } from './pages/favourites/favourites.component';
-import { DisfavouritesComponent } from './pages/disfavourites/disfavourites.component';
+import { SpecialistsComponent } from './pages/specialists/specialists.component';
 
 @NgModule({
   declarations: [
@@ -41,13 +40,12 @@ import { DisfavouritesComponent } from './pages/disfavourites/disfavourites.comp
     AnalitycItemsComponent,
     SidenavbarComponent,
     NavbarListComponent,
-    AllSpecialistsComponent,
-    FavouritesComponent,
-    DisfavouritesComponent,
+    SpecialistsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,

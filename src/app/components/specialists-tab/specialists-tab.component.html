@@ -3,8 +3,22 @@
   <p class="tab__text">{{ item.email }}</p>
   <p class="tab__text">{{ item.speciality }}</p>
   <div class="tab__button-block">
-    <button class="tab__toggle-button">Favourites</button>
-    <button class="tab__toggle-button">Disfavourites</button>
+    <button
+      [ngClass]="
+        item.isFavourite ? 'tab__toggle-button--active' : 'tab__toggle-button'
+      "
+    >
+      Favourites
+    </button>
+    <button
+      [ngClass]="
+        item.isDisFavourite
+          ? 'tab__toggle-button--active'
+          : 'tab__toggle-button'
+      "
+    >
+      Disfavourites
+    </button>
   </div>
   <button class="tab__delete-button" (click)="deleteItem(item.id)">
     Delete

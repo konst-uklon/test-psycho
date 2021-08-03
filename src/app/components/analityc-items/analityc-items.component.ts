@@ -1,7 +1,5 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SpecialistDataType, DataService } from 'src/app/shared/data.service';
-import { SpecialistType } from '../../app.types';
-import { map } from 'rxjs/operators';
 
 interface AnalitycsItemType {
   title: string;

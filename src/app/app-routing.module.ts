@@ -3,16 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddSpecialistsComponent } from './pages/add-specialists/add-specialists.component';
 import { AnalitycsComponent } from './pages/analitycs/analitycs.component';
 import { Page404Component } from './pages/page404/page404.component';
-import { AllSpecialistsComponent } from './pages/all-specialists/all-specialists.component';
-import { FavouritesComponent } from './pages/favourites/favourites.component';
-import { DisfavouritesComponent } from './pages/disfavourites/disfavourites.component';
+import { SpecialistsComponent } from './pages/specialists/specialists.component';
 
 const routes: Routes = [
-  { path: '', component: AllSpecialistsComponent, pathMatch: 'full' },
-  { path: 'favourites', component: FavouritesComponent, pathMatch: 'full' },
+  { path: '', component: SpecialistsComponent, pathMatch: 'full' },
+  { path: 'favourites', component: SpecialistsComponent, pathMatch: 'full' },
   {
     path: 'disfavourites',
-    component: DisfavouritesComponent,
+    component: SpecialistsComponent,
     pathMatch: 'full',
   },
   {

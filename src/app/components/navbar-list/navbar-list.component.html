@@ -6,9 +6,14 @@
     class="nav__list"
   >
     <li class="nav__item" *ngFor="let item of headerItems">
-      <a [routerLink]="item.path" class="nav__link" (click)="closeSidenav()">{{
-        item.textContent
-      }}</a>
+      <a
+        [routerLink]="item.path"
+        class="nav__link"
+        (click)="closeSidenav()"
+        routerLinkActive="nav__link--active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >{{ item.textContent }}</a
+      >
     </li>
   </ul>
 </div>

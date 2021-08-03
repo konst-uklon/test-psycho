@@ -1,0 +1,43 @@
+<div class="block">
+  <div class="content">
+    <!-- not main page header -->
+    <ng-template class="not-main-page__header" #notHomePageHeader>
+      <h2>{{ notHomePage }}</h2>
+    </ng-template>
+    <!----------------------->
+    <div
+      class="main-page"
+      #mainPageContent
+      *ngIf="!!data.length; else noItemsHeader"
+    >
+      <div class="page__header" *ngIf="isMain; else notHomePageHeader">
+        <!-- main page header and select, if there are items -->
+        <h2 class="header">Choose the required specialty</h2>
+        <!-- select, filter by specialty -->
+        <select
+          class="select"
+          (change)="selectChangeHandler($event)"
+          name="select-specialist"
+        >
+          <option [value]="option.value" *ngFor="let option of options">
+            {{ option.name }}
+          </option>
+        </select>
+        <!-- if no items => render noItemsHeader  -->
+      </div>
+    </div>
+    <div
+      class="main-page__sort"
+      #mainPageSort
+      *ngIf="!!renderData.length; else noItemsHeader"
+    >
+      <!-- content, if there are items -->
+      <app-specialists-tab [items]="renderData"></app-specialists-tab>
+    </div>
+  </div>
+
+  <!-- header, if no items -->
+  <ng-template class="header__empty-data" #noItemsHeader>
+    <h2>At the moment there are no specialists</h2>
+  </ng-template>
+</div>

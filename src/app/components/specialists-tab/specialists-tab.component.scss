@@ -1,0 +1,12 @@
+.tab {
+  &__toggle-button,
+  &__toggle-button--active {
+    padding: 5px;
+    border: 0;
+    outline: none;
+    background: rgb(255, 250, 187);
+  }
+  &__toggle-button--active {
+    background: coral;
+  }
+}
