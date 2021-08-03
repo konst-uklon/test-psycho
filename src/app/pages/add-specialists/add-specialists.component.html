@@ -76,19 +76,9 @@
   </mat-form-field>
 
   <!-- ----------------------------Specialist Speciality Field--------------------------- -->
-  <!-- 
-    [ngClass]="
-      addSpecialist.get('email')?.errors &&
-      (addSpecialist.get('email').dirty ||
-        addSpecialist.get('email').touched)
-        ? 'form__input form__input--error'
-        : 'form__input'
-    "
-  /> -->
   <mat-form-field class="form__content" appearance="fill">
     <mat-label for="speciality" class="form__label">Speciality</mat-label>
     <mat-select formControlName="speciality">
-      <!-- <mat-option [value]="null" disabled>Choose specialty</mat-option> -->
       <mat-option *ngFor="let spec of specialty" [value]="spec">
         {{ spec }}
       </mat-option>
@@ -114,10 +104,5 @@
       </p>
     </div>
   </mat-form-field>
-
-  <!-- type="submit"
-  name="submit"
-  [disabled]="addSpecialist.invalid"
-  [ngClass]="addSpecialist.invalid ? 'form__disabled' : 'form__submit'" -->
   <button mat-raised-button color="accent">Create new specialist</button>
 </form>

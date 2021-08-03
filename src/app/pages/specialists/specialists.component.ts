@@ -17,7 +17,7 @@ export class SpecialistsComponent {
       ? 'Favourites specialists'
       : 'Disavoirites specialists';
 
-  selectedOption = 'all';
+  selectedOption = 'All';
 
   options = [
     { name: 'All', value: 'All' },
@@ -52,16 +52,11 @@ export class SpecialistsComponent {
       this.renderData = arr;
     }
   };
-  selectChangeHandler = (event: any) => {
-    const selectedElement = event.target;
-    const optionIndex = selectedElement.selectedIndex;
-    const selectedValue = this.options[optionIndex].value;
-    if (selectedValue === 'All') {
+  selectChangeHandler = (value: string) => {
+    if (value === 'All') {
       this.renderData = this.data;
     } else {
-      this.renderData = [...this.data].filter(
-        (e) => e.speciality === selectedValue
-      );
+      this.renderData = [...this.data].filter((e) => e.speciality === value);
     }
   };
 }

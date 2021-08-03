@@ -1,4 +1,9 @@
-<div class="tab__content" *ngFor="let item of items">
+<div
+  class="tab__content"
+  *ngFor="let item of items"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+>
   <h1 class="tab__header">{{ item.name }}</h1>
   <p class="tab__text">Email: {{ item.email }}</p>
   <p class="tab__text">Speciality: {{ item.speciality }}</p>

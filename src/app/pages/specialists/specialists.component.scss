@@ -1,0 +1,22 @@
+.page {
+  &-main__items {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+  }
+  &__label {
+    display: inline-block;
+    font-size: 20px;
+    padding: 30px 0 10px;
+  }
+}
+
+mat-select {
+  padding: 10px;
+  background-color: rgb(104, 104, 104);
+  border-radius: 5px;
+}

@@ -1,8 +1,8 @@
 <div class="block">
-  <div class="content">
+  <div class="page__content" fxLayout="column" fxLayoutAlign="center center">
     <!-- not main page header -->
     <ng-template class="not-main-page__header" #notHomePageHeader>
-      <h2>{{ notHomePage }}</h2>
+      <h2 class="page__label">{{ notHomePage }}</h2>
     </ng-template>
     <!----------------------->
     <div
@@ -12,9 +12,10 @@
     >
       <div class="page__header" *ngIf="isMain; else notHomePageHeader">
         <!-- main page header and select, if there are items -->
-        <h2 class="header">Choose the required specialty</h2>
+
+        <!-- <h2 class="header">Choose the required specialty</h2> -->
         <!-- select, filter by specialty -->
-        <select
+        <!-- <select
           class="select"
           (change)="selectChangeHandler($event)"
           name="select-specialist"
@@ -22,17 +23,25 @@
           <option [value]="option.value" *ngFor="let option of options">
             {{ option.name }}
           </option>
-        </select>
+        </select> -->
+        <mat-label class="page__label">Choose the required specialty</mat-label>
+        <mat-select
+          [(value)]="selectedOption"
+          (selectionChange)="selectChangeHandler($event.value)"
+        >
+          <mat-option [value]="option.value" *ngFor="let option of options">
+            {{ option.name }}
+          </mat-option>
+        </mat-select>
         <!-- if no items => render noItemsHeader  -->
       </div>
     </div>
-    <div
-      class="main-page__sort"
-      #mainPageSort
-      *ngIf="!!renderData.length; else noItemsHeader"
-    >
+    <div #mainPageSort *ngIf="!!renderData.length; else noItemsHeader">
       <!-- content, if there are items -->
-      <app-specialists-tab [items]="renderData"></app-specialists-tab>
+      <app-specialists-tab
+        class="page-main__items"
+        [items]="renderData"
+      ></app-specialists-tab>
     </div>
   </div>
 
