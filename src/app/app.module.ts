@@ -18,14 +18,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app.material-module';
 import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarListComponent } from './components/navbar-list/navbar-list.component';
 import { SpecialistsComponent } from './pages/specialists/specialists.component';
+import { MatModules } from './shared/mat.module';
 
 @NgModule({
   declarations: [
@@ -51,12 +47,8 @@ import { SpecialistsComponent } from './pages/specialists/specialists.component'
     BrowserAnimationsModule,
     AppMaterialModule,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
     FlexLayoutModule,
+    MatModules,
   ],
   providers: [],
   bootstrap: [AppComponent],

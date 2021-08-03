@@ -1,22 +1,12 @@
 <div class="tab__content" *ngFor="let item of items">
   <h1 class="tab__header">{{ item.name }}</h1>
-  <p class="tab__text">{{ item.email }}</p>
-  <p class="tab__text">{{ item.speciality }}</p>
+  <p class="tab__text">Email: {{ item.email }}</p>
+  <p class="tab__text">Speciality: {{ item.speciality }}</p>
   <div class="tab__button-block">
-    <button
-      [ngClass]="
-        item.isFavourite ? 'tab__toggle-button--active' : 'tab__toggle-button'
-      "
-    >
+    <button mat-stroked-button [color]="item.isFavourite ? 'accent' : ''">
       Favourites
     </button>
-    <button
-      [ngClass]="
-        item.isDisFavourite
-          ? 'tab__toggle-button--active'
-          : 'tab__toggle-button'
-      "
-    >
+    <button mat-stroked-button [color]="item.isDisFavourite ? 'accent' : ''">
       Disfavourites
     </button>
   </div>
