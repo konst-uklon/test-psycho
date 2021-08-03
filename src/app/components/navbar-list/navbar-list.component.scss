@@ -14,8 +14,10 @@
 }
 
 @media screen and (max-width: 960px) {
-  .nav__link--active {
-    padding: 20px 0;
+  .nav {
+    &__link--active {
+      padding: 20px 0;
+    }
   }
 }
 
@@ -31,7 +33,6 @@
       }
       &:hover {
         color: rgb(144, 255, 80);
-        padding: 20px 0;
         border-top: 2px solid rgb(144, 255, 80);
         border-bottom: 2px solid rgb(144, 255, 80);
       }
