@@ -3,15 +3,26 @@
     min-width: 50vw;
   }
   &__item {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    padding: 10px;
+    padding-left: 10px;
   }
   &__title,
   &__result {
     text-transform: uppercase;
     font-weight: 700;
+  }
+  &__result {
+    padding-left: 15px;
+  }
+  &__title {
+    padding-right: 15px;
+  }
+}
+
+.table {
+  &-header,
+  &-row {
+    display: grid;
+    grid-template-columns: 20% 50% 30% 0%;
   }
 }
 
@@ -21,12 +32,33 @@
       min-width: 70vw;
     }
   }
+  // .table {
+  //   &-header,
+  //   &-row {
+  //     grid-template-columns: 20% 50% 30% 0%;
+  //   }
+  // }
 }
 
 @media screen and (max-width: 639px) {
   .analityc {
     &__list {
       min-width: 80vw;
+    }
+    &__title,
+    &__result {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 12px;
+    }
+    &__number {
+      padding-right: 10px;
+    }
+  }
+  .table {
+    &-header,
+    &-row {
+      grid-template-columns: 25% 55% 20% 0%;
     }
   }
 }

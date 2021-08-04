@@ -104,5 +104,7 @@
       </p>
     </div>
   </mat-form-field>
-  <button mat-raised-button color="accent">Create new specialist</button>
+  <button mat-raised-button color="accent" [disabled]="addSpecialist.invalid">
+    Create new specialist
+  </button>
 </form>

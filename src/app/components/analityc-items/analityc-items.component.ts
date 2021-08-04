@@ -22,6 +22,7 @@ export class AnalitycItemsComponent implements OnInit {
     { title: 'Total disfavourites', result: 0 },
   ];
   isLoading = false;
+  displayedColumns: string[] = ['number', 'name', 'total'];
 
   constructor(readonly appData: DataService) {
     this.isLoading = true;
