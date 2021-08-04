@@ -37,9 +37,12 @@ export class AddSpecialistsComponent {
 
     this.appData.create(fullDataOfNewSpec);
     this.addSpecialist.reset();
+    this.addSpecialist.get('name')?.markAsUntouched();
+    this.addSpecialist.get('name')?.markAsPristine();
 
-    console.log(this.addSpecialist);
-    // this.addSpecialist.markAsPristine();
-    // this.addSpecialist.markAsUntouched();
+    console.log(this.addSpecialist.controls);
+    // console.log(this.addSpecialist);
+    this.addSpecialist.markAsPristine();
+    this.addSpecialist.markAsUntouched();
   }
 }

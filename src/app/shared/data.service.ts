@@ -40,11 +40,12 @@ export class DataService implements OnInit {
     return this.http.delete<void>(`${DataService.url}/${id}.json`);
   }
 
-  // toggleFav(id: string): Observable<void> {
-  //   const item = [...this.data.filter((e) => e.id === id)];
-
-  //   return this.http.put<void>(`${DataService.url}/${id}.json`, newItemData);
-  // }
+  toggleFav(newItemData: SpecialistDataType): Observable<void> {
+    return this.http.put<void>(
+      `${DataService.url}/${newItemData.id}.json`,
+      newItemData
+    );
+  }
 
   getData = () => {
     return this.http.get<SpecialistDataType[]>(`${DataService.url}.json`).pipe(

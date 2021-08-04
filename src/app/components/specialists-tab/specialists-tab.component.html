@@ -8,10 +8,18 @@
   <p class="tab__text">Email: {{ item.email }}</p>
   <p class="tab__text">Speciality: {{ item.speciality }}</p>
   <div class="tab__button-block">
-    <button mat-stroked-button [color]="item.isFavourite ? 'accent' : ''">
+    <button
+      mat-stroked-button
+      [color]="item.isFavourite ? 'accent' : ''"
+      (click)="toggleIsFav(item, 'isFavourite')"
+    >
       Favourites
     </button>
-    <button mat-stroked-button [color]="item.isDisFavourite ? 'accent' : ''">
+    <button
+      mat-stroked-button
+      [color]="item.isDisFavourite ? 'accent' : ''"
+      (click)="toggleIsFav(item, 'isDisFavourite')"
+    >
       Disfavourites
     </button>
   </div>

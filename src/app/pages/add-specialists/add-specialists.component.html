@@ -12,7 +12,7 @@
     <mat-label for="name" class="form__label">Name</mat-label>
     <input matInput placeholder="Add specialist name" formControlName="name" />
     <!-- Errors for Specialist name input -->
-    <div
+    <ng-container
       class="form__error--block"
       *ngIf="
         addSpecialist.get('name')?.errors &&
@@ -37,7 +37,7 @@
       >
         Incorrect name
       </mat-error>
-    </div>
+    </ng-container>
   </mat-form-field>
 
   <!-- -----------------Specialist Email Field---------------------- -->
@@ -45,7 +45,7 @@
     <mat-label for="email" class="form__label">Email</mat-label>
     <input matInput placeholder="Add specialist name" formControlName="email" />
     <!-- Errors for Specialist email input -->
-    <div
+    <ng-container
       class="form__error--block"
       *ngIf="
         addSpecialist.get('email')?.errors &&
@@ -72,7 +72,7 @@
       >
         Incorrect email
       </mat-error>
-    </div>
+    </ng-container>
   </mat-form-field>
 
   <!-- ----------------------------Specialist Speciality Field--------------------------- -->
@@ -84,7 +84,7 @@
       </mat-option>
     </mat-select>
     <!-- Errors for Specialist Speciality select -->
-    <div
+    <ng-container
       class="form__error--block"
       *ngIf="
         addSpecialist.get('speciality')?.errors &&
@@ -102,7 +102,7 @@
       >
         Choose one of the options
       </p>
-    </div>
+    </ng-container>
   </mat-form-field>
   <button mat-raised-button color="accent" [disabled]="addSpecialist.invalid">
     Create new specialist
