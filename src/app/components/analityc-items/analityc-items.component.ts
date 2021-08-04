@@ -21,11 +21,14 @@ export class AnalitycItemsComponent implements OnInit {
     { title: 'Total favourites', result: 0 },
     { title: 'Total disfavourites', result: 0 },
   ];
+  isLoading = false;
 
   constructor(readonly appData: DataService) {
+    this.isLoading = true;
     appData.getData().subscribe(
       (dataFromDB: SpecialistDataType[]) => {
         this.setArrForRender(dataFromDB);
+        this.isLoading = false;
       },
       (error: string | null) => {
         // dataError = error.message;

@@ -11,19 +11,6 @@
       *ngIf="!!data.length; else noItemsHeader"
     >
       <div class="page__header" *ngIf="isMain; else notHomePageHeader">
-        <!-- main page header and select, if there are items -->
-
-        <!-- <h2 class="header">Choose the required specialty</h2> -->
-        <!-- select, filter by specialty -->
-        <!-- <select
-          class="select"
-          (change)="selectChangeHandler($event)"
-          name="select-specialist"
-        >
-          <option [value]="option.value" *ngFor="let option of options">
-            {{ option.name }}
-          </option>
-        </select> -->
         <mat-label class="page__label">Choose the required specialty</mat-label>
         <mat-select
           [(value)]="selectedOption"
@@ -50,3 +37,4 @@
     <h2>At the moment there are no specialists</h2>
   </ng-template>
 </div>
+<app-loader *ngIf="isLoading"></app-loader>

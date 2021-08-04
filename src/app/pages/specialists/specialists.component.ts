@@ -19,6 +19,8 @@ export class SpecialistsComponent {
 
   selectedOption = 'All';
 
+  isLoading = false;
+
   options = [
     { name: 'All', value: 'All' },
     { name: 'Psychologist', value: 'Psychologist' },
@@ -31,9 +33,11 @@ export class SpecialistsComponent {
   }
 
   getDBData = () => {
+    this.isLoading = true;
     this.appData.getData().subscribe(
       (dataFromDB: SpecialistDataType[]) => {
         this.setDataForRender(dataFromDB);
+        this.isLoading = false;
       },
       (error: string | null) => {
         // dataError = error.message;
