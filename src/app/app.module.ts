@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ActionButtonComponent } from './components/action-button/action-button.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { SpecialistsTabComponent } from './components/specialists-tab/specialists-tab.component';
 import { AddSpecialistsComponent } from './pages/add-specialists/add-specialists.component';
@@ -27,7 +26,6 @@ import { MatModules } from './shared/mat.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    ActionButtonComponent,
     LoaderComponent,
     SpecialistsTabComponent,
     AddSpecialistsComponent,
