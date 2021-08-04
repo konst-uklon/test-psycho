@@ -15,7 +15,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app.material-module';
-import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarListComponent } from './components/navbar-list/navbar-list.component';
@@ -32,7 +31,6 @@ import { MatModules } from './shared/mat.module';
     AnalitycsComponent,
     Page404Component,
     AnalitycItemsComponent,
-    SidenavbarComponent,
     NavbarListComponent,
     SpecialistsComponent,
   ],

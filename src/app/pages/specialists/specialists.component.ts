@@ -15,7 +15,7 @@ export class SpecialistsComponent {
   notHomePage: string =
     this.userLocation === '/favourites'
       ? 'Favourites specialists'
-      : 'Disavoirites specialists';
+      : 'Disfavoirites specialists';
 
   selectedOption = 'All';
 

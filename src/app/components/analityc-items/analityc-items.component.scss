@@ -1,6 +1,5 @@
 .analityc {
   &__list {
-    max-width: 50vw;
     min-width: 50vw;
   }
   &__item {
@@ -13,5 +12,21 @@
   &__result {
     text-transform: uppercase;
     font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 978px) and (min-width: 640px) {
+  .analityc {
+    &__list {
+      min-width: 70vw;
+    }
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .analityc {
+    &__list {
+      min-width: 80vw;
+    }
   }
 }
