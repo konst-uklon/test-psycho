@@ -1,10 +1,4 @@
-<!-- <ul class="analityc__list">
-  <li class="analityc__item" *ngFor="let item of analiticsList">
-    <p class="analityc__title">{{ item.title }}</p>
-    <p class="analityc__result">{{ item.result }}</p>
-  </li>
-</ul> -->
-
+<!-- render a loader if information from the server has not yet arrived -->
 <app-loader *ngIf="isLoading"></app-loader>
 
 <mat-table
