@@ -32,6 +32,7 @@ export class SpecialistsComponent {
     this.getDBData();
   }
 
+  // Get data from DB
   getDBData = () => {
     this.isLoading = true;
     this.appData.getData().subscribe(
@@ -45,6 +46,7 @@ export class SpecialistsComponent {
     );
   };
 
+  // Modificate data for render
   setDataForRender = (arr: SpecialistDataType[]) => {
     const { userLocation } = this;
     this.data = arr;
@@ -56,11 +58,49 @@ export class SpecialistsComponent {
       this.renderData = arr;
     }
   };
+
+  // Filter for main page
   selectChangeHandler = (value: string) => {
     if (value === 'All') {
       this.renderData = this.data;
     } else {
       this.renderData = [...this.data].filter((e) => e.speciality === value);
     }
+  };
+
+  // Delete data from db and component arr
+  deleteItem = (id: string) => {
+    const newData = [...this.renderData].filter((e) => e.id !== id);
+    this.renderData = newData;
+    this.appData.remove(id).subscribe(
+      () => {},
+      (err) => console.error(err)
+    );
+  };
+
+  // Toggle fav or disfav
+  toggleFav = (data: any) => {
+    const { toggleItem, itemIsFav } = data;
+    if (itemIsFav === 'isFavourite') {
+      toggleItem.isFavourite = !toggleItem.isFavourite;
+      if (toggleItem.isDisFavourite) {
+        toggleItem.isDisFavourite = !toggleItem.isDisFavourite;
+      }
+    } else {
+      toggleItem.isDisFavourite = !toggleItem.isDisFavourite;
+      if (toggleItem.isFavourite) {
+        toggleItem.isFavourite = !toggleItem.isFavourite;
+      }
+    }
+
+    const newData = [...this.renderData].map((e) =>
+      e.id === toggleItem.id ? { ...e, ...toggleItem } : e
+    );
+
+    this.setDataForRender(newData);
+    this.appData.toggleFav(toggleItem).subscribe(
+      () => {},
+      (err) => console.error(err)
+    );
   };
 }

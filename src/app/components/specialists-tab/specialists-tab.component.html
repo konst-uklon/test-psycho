@@ -11,14 +11,14 @@
     <button
       mat-stroked-button
       [color]="item.isFavourite ? 'accent' : ''"
-      (click)="toggleIsFav(item, 'isFavourite')"
+      (click)="toggleFavHandler(item, 'isFavourite')"
     >
       Favourites
     </button>
     <button
       mat-stroked-button
       [color]="item.isDisFavourite ? 'accent' : ''"
-      (click)="toggleIsFav(item, 'isDisFavourite')"
+      (click)="toggleFavHandler(item, 'isDisFavourite')"
     >
       Disfavourites
     </button>

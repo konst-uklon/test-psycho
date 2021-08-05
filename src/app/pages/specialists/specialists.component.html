@@ -28,6 +28,8 @@
       <app-specialists-tab
         class="page-main__items"
         [items]="renderData"
+        (deleteItemEvent)="deleteItem($event)"
+        (toggleFavEvent)="toggleFav($event)"
       ></app-specialists-tab>
     </div>
   </div>
