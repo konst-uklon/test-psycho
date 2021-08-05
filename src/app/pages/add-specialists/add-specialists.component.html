@@ -12,32 +12,22 @@
     <mat-label for="name" class="form__label">Name</mat-label>
     <input matInput placeholder="Add specialist name" formControlName="name" />
     <!-- Errors for Specialist name input -->
-    <ng-container
-      class="form__error--block"
+    <mat-error
       *ngIf="
-        addSpecialist.get('name')?.errors &&
+        addSpecialist.get('name')?.errors?.required &&
         (addSpecialist.get('name')?.dirty || addSpecialist.get('name')?.touched)
       "
     >
-      <mat-error
-        *ngIf="
-          addSpecialist.get('name')?.errors?.required &&
-          (addSpecialist.get('name')?.dirty ||
-            addSpecialist.get('name')?.touched)
-        "
-      >
-        Required
-      </mat-error>
-      <mat-error
-        *ngIf="
-          addSpecialist.get('name')?.errors?.pattern &&
-          (addSpecialist.get('name')?.dirty ||
-            addSpecialist.get('name')?.touched)
-        "
-      >
-        Incorrect name
-      </mat-error>
-    </ng-container>
+      Required
+    </mat-error>
+    <mat-error
+      *ngIf="
+        addSpecialist.get('name')?.errors?.pattern &&
+        (addSpecialist.get('name')?.dirty || addSpecialist.get('name')?.touched)
+      "
+    >
+      Incorrect name
+    </mat-error>
   </mat-form-field>
 
   <!-- -----------------Specialist Email Field---------------------- -->
@@ -45,34 +35,25 @@
     <mat-label for="email" class="form__label">Email</mat-label>
     <input matInput placeholder="Add specialist name" formControlName="email" />
     <!-- Errors for Specialist email input -->
-    <ng-container
-      class="form__error--block"
+    <mat-error
       *ngIf="
-        addSpecialist.get('email')?.errors &&
+        addSpecialist.get('email')?.errors?.required &&
         (addSpecialist.get('email')?.dirty ||
           addSpecialist.get('email')?.touched)
       "
     >
-      <mat-error
-        *ngIf="
-          addSpecialist.get('email')?.errors?.required &&
-          (addSpecialist.get('email')?.dirty ||
-            addSpecialist.get('email')?.touched)
-        "
-      >
-        Required
-      </mat-error>
-      <mat-error
-        class="form__error"
-        *ngIf="
-          addSpecialist.get('email')?.errors?.email &&
-          (addSpecialist.get('email')?.dirty ||
-            addSpecialist.get('email')?.touched)
-        "
-      >
-        Incorrect email
-      </mat-error>
-    </ng-container>
+      Required
+    </mat-error>
+    <mat-error
+      class="form__error"
+      *ngIf="
+        addSpecialist.get('email')?.errors?.email &&
+        (addSpecialist.get('email')?.dirty ||
+          addSpecialist.get('email')?.touched)
+      "
+    >
+      Incorrect email
+    </mat-error>
   </mat-form-field>
 
   <!-- ----------------------------Specialist Speciality Field--------------------------- -->
@@ -84,27 +65,22 @@
       </mat-option>
     </mat-select>
     <!-- Errors for Specialist Speciality select -->
-    <ng-container
-      class="form__error--block"
+    <mat-error
+      class="form__error"
       *ngIf="
-        addSpecialist.get('speciality')?.errors &&
+        addSpecialist.get('speciality')?.errors?.required &&
         (addSpecialist.get('speciality')?.dirty ||
           addSpecialist.get('speciality')?.touched)
       "
     >
-      <p
-        class="form__error"
-        *ngIf="
-          addSpecialist.get('speciality')?.errors?.required &&
-          (addSpecialist.get('speciality')?.dirty ||
-            addSpecialist.get('speciality')?.touched)
-        "
-      >
-        Choose one of the options
-      </p>
-    </ng-container>
+      Choose one of the options
+    </mat-error>
   </mat-form-field>
-  <button mat-raised-button color="accent" [disabled]="addSpecialist.invalid">
+  <button
+    mat-raised-button
+    color="accent"
+    [disabled]="addSpecialist.invalid || addSpecialist.untouched"
+  >
     Create new specialist
   </button>
 </form>

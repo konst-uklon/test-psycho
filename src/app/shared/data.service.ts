@@ -1,7 +1,7 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map, subscribeOn } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 export interface SpecialistDataType {
   email: string;
@@ -15,40 +15,15 @@ export interface SpecialistDataType {
 @Injectable({
   providedIn: 'root',
 })
-export class DataService implements OnInit {
+export class DataService {
   static url =
     'https://specialists-8c218-default-rtdb.europe-west1.firebasedatabase.app/specialists';
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {}
-
-  create = (
-    specialist: SpecialistDataType // : Observable<SpecialistDataType>
-  ) => {
-    this.http
-      .post<{ name: string }>(`${DataService.url}.json`, specialist)
-      .subscribe(
-        (resData) => {
-          resData;
-        },
-        (err) => console.error(err)
-      );
-  };
-
-  remove(id: string): Observable<void> {
-    return this.http.delete<void>(`${DataService.url}/${id}.json`);
-  }
-
-  toggleFav(newItemData: SpecialistDataType): Observable<void> {
-    return this.http.put<void>(
-      `${DataService.url}/${newItemData.id}.json`,
-      newItemData
-    );
-  }
-
-  getData = () => {
-    return this.http.get<SpecialistDataType[]>(`${DataService.url}.json`).pipe(
+  // Get
+  getData = () =>
+    this.http.get<SpecialistDataType[]>(`${DataService.url}.json`).pipe(
       map((res) => {
         const dataArr: SpecialistDataType[] = [];
         for (const key in res) {
@@ -59,13 +34,19 @@ export class DataService implements OnInit {
         return dataArr;
       })
     );
-    // .subscribe(
-    //   (data) => {
-    //     this.isLoading = false;
-    //     this.data = data;
-    //     console.log('Subscribe - ', this.data);
-    //   },
-    //   (err) => console.error(err)
-    // );
-  };
+
+  // Post
+  create = (specialist: SpecialistDataType): Observable<{ name: string }> =>
+    this.http.post<{ name: string }>(`${DataService.url}.json`, specialist);
+
+  // Delete
+  remove = (id: string): Observable<void> =>
+    this.http.delete<void>(`${DataService.url}/${id}.json`);
+
+  // Put
+  toggleFav = (newItemData: SpecialistDataType): Observable<void> =>
+    this.http.put<void>(
+      `${DataService.url}/${newItemData.id}.json`,
+      newItemData
+    );
 }

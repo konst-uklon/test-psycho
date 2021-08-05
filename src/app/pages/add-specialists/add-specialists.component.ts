@@ -17,7 +17,7 @@ export class AddSpecialistsComponent {
   specialty: string[] = ['Psychologist', 'Psychotherapist', 'Psychiatrist'];
 
   constructor(private formBuilder: FormBuilder, private appData: DataService) {
-    this.addSpecialist = new FormGroup({
+    this.addSpecialist = formBuilder.group({
       name: new FormControl('', [
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_ ]*$'),
@@ -27,7 +27,7 @@ export class AddSpecialistsComponent {
     });
   }
 
-  submit() {
+  submit = () => {
     const newSpec = this.addSpecialist.value;
     const fullDataOfNewSpec = {
       ...newSpec,
@@ -35,14 +35,21 @@ export class AddSpecialistsComponent {
       isDisFavourite: false,
     };
 
-    this.appData.create(fullDataOfNewSpec);
-    this.addSpecialist.reset();
-    this.addSpecialist.get('name')?.markAsUntouched();
-    this.addSpecialist.get('name')?.markAsPristine();
+    this.appData.create(fullDataOfNewSpec).subscribe(
+      () => {
+        this.resetForm();
+      },
+      (err: string) => console.error(err)
+    );
+  };
 
-    console.log(this.addSpecialist.controls);
-    // console.log(this.addSpecialist);
-    this.addSpecialist.markAsPristine();
+  resetForm = () => {
+    console.log(this.addSpecialist);
+    this.addSpecialist.reset();
     this.addSpecialist.markAsUntouched();
-  }
+    this.addSpecialist.markAsPristine();
+    this.addSpecialist.get('name')?.setErrors(null);
+    this.addSpecialist.get('email')?.setErrors(null);
+    this.addSpecialist.get('speciality')?.setErrors(null);
+  };
 }
