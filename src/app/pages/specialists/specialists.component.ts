@@ -1,8 +1,6 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService, SpecialistDataType } from 'src/app/shared/data.service';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-import { createHostListener } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-specialists',

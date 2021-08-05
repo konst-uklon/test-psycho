@@ -5,6 +5,7 @@
   class="form__container"
   [formGroup]="addSpecialist"
   (ngSubmit)="submit()"
+  #f="ngForm"
 >
   <!-- --------------------Specialist Name Field---------------------- -->
 
@@ -80,6 +81,7 @@
     mat-raised-button
     color="accent"
     [disabled]="addSpecialist.invalid || addSpecialist.untouched"
+    type="sybmit"
   >
     Create new specialist
   </button>

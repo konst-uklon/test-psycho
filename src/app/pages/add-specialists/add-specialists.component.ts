@@ -1,10 +1,5 @@
-import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from 'src/app/shared/data.service';
 
 @Component({
@@ -15,14 +10,15 @@ import { DataService } from 'src/app/shared/data.service';
 export class AddSpecialistsComponent {
   addSpecialist: FormGroup;
   specialty: string[] = ['Psychologist', 'Psychotherapist', 'Psychiatrist'];
+  @ViewChild('f', { static: true }) userNgForm: any;
 
-  constructor(private formBuilder: FormBuilder, private appData: DataService) {
-    this.addSpecialist = formBuilder.group({
-      name: new FormControl('', [
+  constructor(private appData: DataService) {
+    this.addSpecialist = new FormGroup({
+      name: new FormControl(null, [
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_ ]*$'),
       ]),
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
       speciality: new FormControl(null, Validators.required),
     });
   }
@@ -37,19 +33,9 @@ export class AddSpecialistsComponent {
 
     this.appData.create(fullDataOfNewSpec).subscribe(
       () => {
-        this.resetForm();
+        this.userNgForm.resetForm();
       },
       (err: string) => console.error(err)
     );
-  };
-
-  resetForm = () => {
-    console.log(this.addSpecialist);
-    this.addSpecialist.reset();
-    this.addSpecialist.markAsUntouched();
-    this.addSpecialist.markAsPristine();
-    this.addSpecialist.get('name')?.setErrors(null);
-    this.addSpecialist.get('email')?.setErrors(null);
-    this.addSpecialist.get('speciality')?.setErrors(null);
   };
 }
