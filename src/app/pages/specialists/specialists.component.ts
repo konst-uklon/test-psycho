@@ -1,6 +1,8 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { DataService, SpecialistDataType } from 'src/app/shared/data.service';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+import { createHostListener } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-specialists',
@@ -10,17 +12,14 @@ import { Location } from '@angular/common';
 export class SpecialistsComponent {
   data: SpecialistDataType[] = [];
   renderData: SpecialistDataType[] = [];
-  userLocation: string = this._location.path();
-  isMain: boolean = this.userLocation === '';
+  userLocation: string = this.router.url;
+  isMain: boolean = this.userLocation === '/';
   notHomePage: string =
     this.userLocation === '/favourites'
       ? 'Favourites specialists'
       : 'Disfavoirites specialists';
-
   selectedOption = 'All';
-
   isLoading = false;
-
   options = [
     { name: 'All', value: 'All' },
     { name: 'Psychologist', value: 'Psychologist' },
@@ -28,7 +27,7 @@ export class SpecialistsComponent {
     { name: 'Psychiatrist', value: 'Psychiatrist' },
   ];
 
-  constructor(readonly appData: DataService, private _location: Location) {
+  constructor(readonly appData: DataService, readonly router: Router) {
     this.getDBData();
   }
 
